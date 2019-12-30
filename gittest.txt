@@ -5,3 +5,5 @@ gitadd
 加上了dev分支and
 我修改了工作区的文件
 添加了dev
+在Dev中add
+在来一次add
