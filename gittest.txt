@@ -7,3 +7,5 @@ gitadd
 添加了dev
 在Dev中add
 在来一次add
+最后在提交
+最后一次提交没有add
