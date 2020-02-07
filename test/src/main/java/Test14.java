@@ -1,3 +1,4 @@
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -31,5 +32,10 @@ public class Test14 {
         }
         System.out.println("========================="+t);
         System.out.println("========================="+LocalTime.now());
+
+        Instant instants = Instant.now();
+        System.out.println(instants.getEpochSecond());//秒
+        System.out.println(instants.toEpochMilli());//毫秒
+
     }
 }
