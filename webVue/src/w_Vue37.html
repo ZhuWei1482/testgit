@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.common.dev.js"></script>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Vue练习</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="w_Vue.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="arr">
+            <div>
+                <button @click="start">Start EFFect</button>
+                <div id="effect" v-bind:class="effectClassed"> </div>
+            </div>
+
+            <div v-bind:class="[float, 'blue', 'text-color']">I got no class :</div>
+
+            <div>
+                <input type="text" v-model="userClass">
+                <div v-bind:class="[{visible: true}, userClass]"></div>
+            </div>
+
+            <div>
+                <input type="text" v-model="userClass">
+                <input type="text" v-model="isvisible" >
+                <div v-bind:class="[{visible: isvisible}, userClass]"></div>
+            </div>
+
+            <div>
+                <input type="text" v-model="myStyle.backgroundColor">
+                <div v-bind:style="myStyle"></div>
+            </div>
+
+            <div>
+                <button v-on:click="startProgress">Start Progress</button>
+                <div v-bind:class="['progress-bar']" v-bind:style="progressBar"></div>
+            </div>
+        </div>
+
+
+        <script>
+            new Vue({
+                el: '#arr',
+                data: {
+                    effectClassed: {
+                        highlight: false,
+                        shrink: true
+                    },
+                    float: 'float',
+                    userClass: '',
+                    isvisible: true,
+                    myStyle: {
+                        width: '100px',
+                        height: '150px',
+                        backgroundColor: 'gray',
+                    },
+                    progressBar: {
+                        width: '0px',
+                        backgroundColor: 'brown',
+
+                    }
+                },
+                methods: {
+                    start: function() {
+                        var vm = this;
+                        setInterval(() => {
+                            vm.effectClassed.highlight = !vm.effectClassed.highlight;
+                            vm.effectClassed.shrink = !vm.effectClassed.shrink;
+                        }, 1000);
+                    },
+                    startProgress: function() {
+                        var width = 0;
+                        var vm = this;
+                        setInterval(() => {
+                            width += 10;
+                            vm.progressBar.width = width + 'px ';
+                        }, 500);
+                    }
+                }
+            });
+        </script>
+
+        <script src="" async defer></script>
+    </body>
+</html>
