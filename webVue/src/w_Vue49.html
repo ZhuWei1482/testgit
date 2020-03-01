@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.common.dev.js"></script>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- 练习 -->
+        <div id="app">
+            <div v-if="show"> 你可以看见我吗？ </div>
+            <div v-else> 我出现了 </div>
+            <button @click="show = !show"> 消失/出现 </button>
+
+            <div>
+                <ul>
+                    <!--  i 为下标，ingr 为数组 -->
+                    <li v-for="(ingr, i) in ingr">{{ ingr }}({{ i }})</li>
+                </ul>
+                <ul>
+                    <li v-for="list in lists">
+                        <div v-for="(value, key, index) in list">{{ key }}: {{ value }}({{ index }})</div>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li v-for="i in 10">{{ i }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    show: true,
+                    ingr: ["a", "b", "c"],
+                    lists: [
+                        {name: 'a', age: '16', colo: 'd'},
+                        {name: 'b', age: '18', colo: 'c'}
+                    ]
+                },
+                methods: {
+
+                }
+            });
+        </script>
+
+
+        <!-- 作业 -->
+        <div id="work">
+            <!-- 按钮切换两个p标签,分别用 v-if 和 v-show 来实现 -->
+            <div>
+                <button @click="toMe()">Toggle</button>
+                <p v-if="me">You either see me ..</p>
+                <p v-show="!me">.. or me</p>
+            </div>
+            <!-- 随便选择一个数组把他的元素输出成无序列表 -->
+            <div>
+                <ul>
+                    <li v-for="i in myList">{{ i }}</li>
+                </ul>
+            </div>
+            <!-- 用循环遍历对象打印每一个键值对及其下标 -->
+            <div>
+                <ul>
+                    <li v-for="(value, key, index) in myObjcet">{{ key }} - {{ value }} - {{ index }}</li>
+                </ul>
+            </div>
+            <!-- 输出对象只输出每一个元素的数值 -->
+            <div>
+                <ul>
+                    <li v-for="values in testData">
+                        <template v-if="Array.isArray(values)">
+                            <div v-for="value in values">{{ value }}</div>
+                        </template>
+                        <template v-else>
+                            {{ values }}
+                        </template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#work',
+                data: {
+                    me: true,
+                    myList: ['1904', '1998', '1970', '1989', '1024', '2048'],
+                    myObjcet: {
+                        title: '如何学习奔溃',
+                        author: 'zhuwei',
+                        books: '5'
+                    },
+                    testData: {
+                        name: '数字',
+                        data: [1, 5, 6, 8, 10, 18]
+                    }
+                },
+                methods: {
+                    toMe: function(){
+                        this.me = !this.me;
+                    }
+                }
+            });
+        </script>
+
+        <script src="" async defer></script>
+    </body>
+</html>
