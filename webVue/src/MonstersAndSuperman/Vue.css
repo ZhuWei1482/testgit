@@ -1,0 +1,41 @@
+.battle{
+    background-color: beige;
+    width: 80%;
+    height: 100px;
+    margin-top:100px;
+    /* margin-bottom:20%; */
+    /* margin-right:80%; */
+    margin-left:10%;
+    padding-top:100px;
+    padding-bottom:100px;
+}
+
+.operate{
+    background-color: bisque;
+    width: 50%;
+    height: 100px;
+    /* margin-top:100px; */
+    /* margin-bottom:20%; */
+    /* margin-right:80%; */
+    margin-left:10%;
+    padding-left: 30%;
+}
+
+.log{
+    background-color: blue;
+    width: 80%;
+    height: 100px;
+    /* margin-top:100px; */
+    /* margin-bottom:20%; */
+    /* margin-right:80%; */
+    margin-left:10%;
+}
+
+.blood{
+    background-color: brown;
+    width: 50%;
+    height: 20px;
+}
+
+
+
